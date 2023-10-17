@@ -1,5 +1,4 @@
 // IMPORT DEPENDENCIES
-
 require("dotenv").config();
 const { PORT = 8000, DATABASE_URL } = process.env
 const express = require("express");
@@ -49,7 +48,6 @@ const accountSchema = new mongoose.Schema({
 const Account = mongoose.model("Account", accountSchema);
 
 // MIDDLEWARE
-
 if(process.env.NODE_ENV === "production"){
     app.use(
         cors({
@@ -71,7 +69,6 @@ app.use(express.json());
 app.use(cookieParser());
 
 // CUSTOM AUTH MIDDLEWARE FUNDTION
-
 async function authCheck(req, res, next){
     if(req.cookies.token){
         const payload = await jwt.verify(req.cookies.token, process.env.SECRET)
@@ -173,7 +170,6 @@ app.post("/signup", async (req, res) => {
 })
 
 // /login - POST
-
 app.post("/login", async (req, res) => {
     try {
         const { username, password } = req.body;
