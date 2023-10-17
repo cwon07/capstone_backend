@@ -79,7 +79,6 @@ async function authCheck(req, res, next){
     }
 }
 
-
 // ROUTES
 
 // Index - GET - /events 
